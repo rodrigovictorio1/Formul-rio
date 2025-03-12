@@ -10,6 +10,27 @@ document.addEventListener('DOMContentLoaded', function () {
         agora.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
     document.getElementById('dataHorario').value = dataFormatada;
 
+    const numeroDocumentoInput = document.getElementById('numeroDocumento');
+
+    numeroDocumentoInput.addEventListener('input', function () {
+        let value = numeroDocumentoInput.value.replace(/\D/g, '');
+
+        if (value.length <= 11) {
+            // CPF
+            value = value.replace(/(\d{3})(\d)/, '$1.$2');
+            value = value.replace(/(\d{3})(\d)/, '$1.$2');
+            value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+        } else {
+            // CNPJ
+            value = value.replace(/(\d{2})(\d)/, '$1.$2');
+            value = value.replace(/(\d{3})(\d)/, '$1.$2');
+            value = value.replace(/(\d{3})(\d)/, '$1/$2');
+            value = value.replace(/(\d{4})(\d{1,2})$/, '$1-$2');
+        }
+
+        numeroDocumentoInput.value = value;
+    });
+
     // Predefinir valores
     if (document.getElementById('protocoloChat').value === '') {
         document.getElementById('protocoloChat').value = '--';
@@ -24,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
     btnGerar.addEventListener('click', function () {
         // Pegar valores dos campos
         const empresa = document.getElementById('empresa').value.trim();
+        const numeroDocumento = document.getElementById('numeroDocumento').value.trim();
         const nomeAssinante = document.getElementById('nomeAssinante').value.trim();
         const tipoAtendimento = document.getElementById('tipoAtendimento').value;
         const nomeSolicitante = document.getElementById('nomeSolicitante').value.trim();
@@ -41,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Validar campos obrigatórios
         const camposObrigatorios = [
             { id: 'empresa', nome: 'Empresa' },
+            { id: 'numeroDocumento', nome: 'Número do Documento' },
             { id: 'nomeAssinante', nome: 'Nome de Assinante' },
             { id: 'nomeSolicitante', nome: 'Nome do Solicitante' },
             { id: 'problemaAlegado', nome: 'Problema Alegado' },
