@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Atendimento</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Formulário de Atendimento</h1>
+
+        <div class="form-group">
+            <label for="empresa">Empresa:</label>
+            <input type="text" id="empresa" name="empresa" placeholder="Nome da empresa">
+        </div>
+
+        <div class="form-group">
+            <label for="nomeAssinante">Nome de Assinante:</label>
+            <input type="text" id="nomeAssinante" name="nomeAssinante" placeholder="Nome completo do assinante">
+        </div>
+
+        <div class="form-group">
+            <label for="tipoAtendimento">Tipo de Atendimento:</label>
+            <select id="tipoAtendimento" name="tipoAtendimento">
+                <option value="TELEFONE">TELEFONE</option>
+                <option value="CHAT">CHAT</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="nomeSolicitante">Nome do Solicitante:</label>
+            <input type="text" id="nomeSolicitante" name="nomeSolicitante" placeholder="Nome de quem solicitou">
+        </div>
+
+        <div class="form-group">
+            <label for="endereco">Endereço:</label>
+            <input type="text" id="endereco" name="endereco" placeholder="Endereço completo">
+        </div>
+
+        <div class="form-group">
+            <label for="problemaAlegado">Problema Alegado:</label>
+            <textarea id="problemaAlegado" name="problemaAlegado" placeholder="Descreva o problema relatado"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="procedimentos">Procedimentos realizados:</label>
+            <textarea id="procedimentos" name="procedimentos"
+                placeholder="Descreva os procedimentos realizados"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="dataHorario">Data/Horário:</label>
+            <input type="text" id="dataHorario" name="dataHorario" readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="melhorHorario">Melhor Horário para retorno:</label>
+            <input type="text" id="melhorHorario" name="melhorHorario" value="Mais breve possível">
+        </div>
+
+        <div class="form-group">
+            <label for="telefone1">Telefone 1:</label>
+            <input type="text" id="telefone1" name="telefone1" placeholder="(xx) xxxxx-xxxx">
+        </div>
+
+        <div class="form-group">
+            <label for="telefone2">Telefone 2:</label>
+            <input type="text" id="telefone2" name="telefone2" value="--">
+        </div>
+
+        <div class="form-group">
+            <label for="protocolo">Protocolo:</label>
+            <input type="text" id="protocolo" name="protocolo" placeholder="Número do protocolo">
+        </div>
+
+        <div class="form-group">
+            <label for="protocoloChat">Protocolo do chat:</label>
+            <input type="text" id="protocoloChat" name="protocoloChat" value="--">
+        </div>
+
+        <div class="form-group">
+            <label for="nomeAtendente">Nome do Atendente:</label>
+            <input type="text" id="nomeAtendente" name="nomeAtendente" placeholder="Seu nome">
+        </div>
+
+        <div class="buttons">
+            <button type="button" class="btn-gerar" id="btnGerar">Gerar Conteúdo</button>
+            <button type="button" class="btn-copiar" id="btnCopiar">Copiar Conteúdo</button>
+        </div>
+
+        <div class="resultado" id="resultado"></div>
+
+        <div class="alert alert-success" id="alertCopiado">
+            Conteúdo copiado com sucesso!
+        </div>
+    </div>
+</body>
+
+<script src="script.js"></script>
+
+</html>
